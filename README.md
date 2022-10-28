@@ -1,3 +1,19 @@
+# Sight-reading UI
+
+Goal: build an app to help improve piano sight-reading skills, starting with scales, arpeggios and broken chords.
+
+## todo
+
+* Replace React logo with image of C major scale.
+* Detect MIDI keyboard events (print to console: copy from existing project).
+* Proxy to Express backend.
+* Improve CSS skills! E.g. make sheet music image 80% of viewport width, same aspect ratio. 
+* Sequence:
+    * Choose random scale.
+    * Show image of scale.
+    * Listen for MIDI key press events.
+    * At first, just look for right notes (MIDI note numbers) in the right order.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
