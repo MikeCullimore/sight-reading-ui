@@ -1,0 +1,17 @@
+.sheet-music {
+    width: 90vw;
+}
+
+.sheet-music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.instructions {
+    color: black;
+    text-align: center;
+    font-size: 300%;
+}
