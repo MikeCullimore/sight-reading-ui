@@ -6,7 +6,6 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 
 * Detect MIDI keyboard events (print to console: copy from existing project).
 * Proxy to API in separate project/repo.
-* Improve CSS skills! E.g. make sheet music image 80% of viewport width, same aspect ratio.
 * Sequence:
     * Choose random scale.
     * Show image of scale.
@@ -15,6 +14,7 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 * Fix SVG import (see [React docs](https://create-react-app.dev/docs/adding-images-fonts-and-files/#adding-svgs)).
     * Workaround hack: compress the SVG using [this site](https://jakearchibald.github.io/svgomg/) (default settings) as suggested in [this post](https://github.com/facebook/create-react-app/issues/11770)
     * Next step: try exporting from Inkscape with different settings.
+* Configure tooling: Prettier? ES lint?
 
 # Getting Started with Create React App
 

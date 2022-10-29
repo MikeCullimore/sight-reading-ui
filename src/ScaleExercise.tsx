@@ -1,17 +1,19 @@
-// import React from 'react';
-import scale from './c-major-scale-right-hand.svg';
 import './ScaleExercise.css';
 
-// todo: extract props (src, alt, instructions).
+interface ScaleExerciseProps {
+    imagePath: string;
+    imageDescription: string;
+    instructions: string;
+}
 
-function ScaleExercise() {
+function ScaleExercise(props: ScaleExerciseProps) {
   return (
     <div className="scale-exercise">
       <div className="sheet-music-container">
-        <img src={scale} className="sheet-music" alt="C major scale (right hand)" />
+        <img className="sheet-music" src={props.imagePath} alt={props.imageDescription} />
       </div>
       <div className='instructions'>
-        <p>Play a C major scale with your right hand.</p>
+        <p>{props.instructions}</p>
       </div>
     </div>
   );
