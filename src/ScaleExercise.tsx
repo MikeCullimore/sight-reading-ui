@@ -1,6 +1,6 @@
 import './ScaleExercise.css';
 
-interface ScaleExerciseProps {
+export interface ScaleExerciseProps {
     imagePath: string;
     imageDescription: string;
     instructions: string;

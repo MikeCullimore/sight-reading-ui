@@ -6,6 +6,8 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 
 * Detect MIDI keyboard events (print to console: copy from existing project).
 * Proxy to API in separate project/repo.
+* Track progress: store session data.
+* Quantify tempo, tempo consistency, shaping/articulation.
 * Sequence:
     * Choose random scale.
     * Show image of scale.
