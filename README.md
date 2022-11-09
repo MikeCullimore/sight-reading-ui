@@ -5,6 +5,7 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 ## todo
 
 * Detect MIDI keyboard events (print to console: copy from existing project).
+    * Web MIDI API is not universally supported. Use Node module instead?
 * Proxy to API in separate project/repo.
 * Track progress: store session data.
 * Quantify tempo, tempo consistency, shaping/articulation.
@@ -17,6 +18,7 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
     * Workaround hack: compress the SVG using [this site](https://jakearchibald.github.io/svgomg/) (default settings) as suggested in [this post](https://github.com/facebook/create-react-app/issues/11770)
     * Next step: try exporting from Inkscape with different settings.
 * Configure tooling: Prettier? ES lint?
+* Exercise generator given grade.
 
 # Getting Started with Create React App
 
