@@ -4,8 +4,14 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 
 ## todo
 
+* Refine next button: CSS to position it bottom right.
+* Host latest prototype online
+    * E.g. [mikecullimore.github.io](https://mikecullimore.github.io/)
+* Add image to this readme showing the design/flow: sheet music + MIDI + keyboard input...
 * Detect MIDI keyboard events (print to console: copy from existing project).
     * Web MIDI API is not universally supported. Use Node module instead?
+* Class (MidiDiffer?) with EventEmitter: initialise with MIDI file for exercise, listen to keyboard input stream, emit feedback messages as events e.g. "Not quite: you missed a G in the left hand."
+    * Start with input from QWERTY keyboard?
 * Proxy to API in separate project/repo.
 * Track progress: store session data.
 * Quantify tempo, tempo consistency, shaping/articulation.
@@ -19,6 +25,11 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
     * Next step: try exporting from Inkscape with different settings.
 * Configure tooling: Prettier? ES lint?
 * Exercise generator given grade.
+    * Use Lilypond MIDI output! Can use Lilypond syntax as common input after all!
+
+## Useful links
+
+* Use [html-midi-player](https://cifkao.github.io/html-midi-player/) to play (and visualise) MIDI files.
 
 # Getting Started with Create React App
 

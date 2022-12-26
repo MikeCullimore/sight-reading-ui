@@ -1,11 +1,12 @@
 import './App.css';
+import KeyboardListener from './KeyboardListener';
 import ScaleExercise from './ScaleExercise';
-import { getRandomScaleProps } from './scales';
 
 function App() {
   return (
     <div className="App">
-      <ScaleExercise {...getRandomScaleProps()}/>
+      <ScaleExercise/>
+      {/* <KeyboardListener/> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 enum Grade {
-    One = 1, // So that numeric values will match.
+    One = 1, // So that numeric values will match (default is 0).
     Two,
     Three,
     Four,
@@ -33,38 +33,77 @@ enum TimeSignature {
     SevenEight,
     SevenFour,
     TwelveEight
-} 
+}
 
-// todo: add remaining parameters from ABRSM book e.g. note and rest values, dynamics, tempo
-// markings and descriptions. What else to capture? Note range, largest interval, ...?
-export interface GradeParameters {
+enum NoteValue {
+    SemiQuaver,
+    Quaver,
+    Crotchet,
+    DottedCrotchet,
+    Minim,
+    DottedMinim,
+    SemiBreve
+}
+
+enum RestValue {
+    SemiQuaver,
+    Quaver,
+    Crotchet,
+    Minim,
+    SemiBreve
+}
+
+enum Dynamics {
+    Piano,
+    MezzoPiano,
+    MezzoForte,
+    Forte,
+    Crescendo,
+    Diminuendo,
+    Pianissimo,
+    Fortissimo
+}
+
+// todo: add remaining parameters from ABRSM book e.g. dynamics, tempo markings and descriptions.
+// What else to capture? Note range, largest interval, ...?
+interface GradeParameters {
     keys: Key[]
     timeSignatures: TimeSignature[]
+    noteValues: NoteValue[]
+    restValues: RestValue[]
 }
 
 // todo: function to generate exercises with these parameters.
-export interface ExerciseParameters {
+interface ExerciseParameters {
     key: Key
     timeSignature: TimeSignature
+    noteValues: NoteValue[]
+    restValues: RestValue[]
 }
 
 const gradeOne: GradeParameters = {
     keys: [Key.CMajor, Key.GMajor, Key.FMajor, Key.AMinor, Key.DMinor],
-    timeSignatures: [TimeSignature.FourFour, TimeSignature.ThreeFour, TimeSignature.TwoFour]
+    timeSignatures: [TimeSignature.FourFour, TimeSignature.ThreeFour, TimeSignature.TwoFour],
+    noteValues: [NoteValue.Quaver, NoteValue.Crotchet, NoteValue.Minim, NoteValue.DottedMinim],
+    restValues: [RestValue.Crotchet, RestValue.Minim, RestValue.SemiBreve]
 }
 
 const gradeTwo: GradeParameters = {
     keys: [...gradeOne.keys, Key.DMajor, Key.EMinor, Key.GMinor],
     timeSignatures: gradeOne.timeSignatures,
+    noteValues: [...gradeOne.noteValues, NoteValue.DottedCrotchet, NoteValue.Minim],
+    restValues: gradeOne.restValues,
 }
 
 // Just to satisfy record so there are entries for every grade.
 const tmpEmptyGrade: GradeParameters = {
     keys: [],
-    timeSignatures: []
+    timeSignatures: [],
+    noteValues: [],
+    restValues: []
 }
 
-export const gradeParametersLookup: Record<Grade, GradeParameters> = {
+const gradeParametersLookup: Record<Grade, GradeParameters> = {
     1: gradeOne,
     2: gradeTwo,
     3: tmpEmptyGrade,
@@ -79,10 +118,21 @@ function chooseRandom<T>(array: Array<T>): T {
     return array[Math.floor(Math.random()*array.length)];
 }
 
-export function getExerciseParameters(grade: Grade): ExerciseParameters {
+function getExerciseParameters(grade: Grade): ExerciseParameters {
     const gradeParameters = gradeParametersLookup[grade];
     return {
         key: chooseRandom(gradeParameters.keys),
-        timeSignature: chooseRandom(gradeParameters.timeSignatures)
+        timeSignature: chooseRandom(gradeParameters.timeSignatures),
+        noteValues: gradeParameters.noteValues,
+        restValues: gradeParameters.restValues
     }
 }
+
+export function generateExercise(grade: Grade) {
+    const parameters = getExerciseParameters(grade);
+
+}
+
+// todo: make this work!
+// Compiled via `tsc grades.ts` which is then embedded in debugging.html.
+// document.body.textContent = JSON.stringify(getExerciseParameters(Grade.One));

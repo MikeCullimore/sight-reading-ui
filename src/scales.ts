@@ -17,6 +17,7 @@ const cMajorLeft: ScaleExerciseProps = {
 const scales = [cMajorRight, cMajorLeft];
 
 export function getRandomScaleProps() {
+    // TODO: should scale be state not props?
     return scales[Math.floor(Math.random()*scales.length)];
 }
 
