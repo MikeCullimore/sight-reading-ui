@@ -2,10 +2,9 @@ import './ScaleExercise.css';
 import { getRandomScaleProps } from './scales';
 import { useState } from 'react';
 
-export interface ScaleExerciseProps {
-    imagePath: string;
-    imageDescription: string;
-    instructions: string;
+export interface ScaleExerciseState {
+    image: string;
+    description: string;
 }
 
 function ScaleExercise() {
@@ -13,14 +12,12 @@ function ScaleExercise() {
 
   return (
     <div className="scale-exercise">
+      <div className="description">{scale.description}</div>
       <div className="sheet-music-container">
-        <img className="sheet-music" src={scale.imagePath} alt={scale.imageDescription} />
-      </div>
-      <div className='instructions'>
-        <p>{scale.instructions}</p>
+        <img className="sheet-music" src={scale.image} alt={scale.description} />
       </div>
       <div className="inputs">
-        <button onClick={() => setScale(getRandomScaleProps())}>Next</button>
+        <button className="next-button" onClick={() => setScale(getRandomScaleProps())}>Next</button>
       </div>
     </div>
   );

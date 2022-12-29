@@ -10,8 +10,13 @@
     width: 100%;
 }
 
-.instructions {
+.description {
     color: black;
-    text-align: center;
+    text-align: left;
     font-size: 300%;
+}
+
+.next-button {
+    font-size: 500%;
+    border-radius: 1pc;
 }

@@ -1,23 +1,20 @@
-import cMajorRightImagePath from './c-major-scale-right-hand.svg';
-import cMajorLeftImagePath from './c-major-scale-left-hand.svg';
-import { ScaleExerciseProps } from './ScaleExercise';
+import imageCMajorRight from './scales/c-major-scale-right-hand.svg';
+import imageCMajorLeft from './scales/c-major-scale-left-hand.svg';
+import { ScaleExerciseState } from './ScaleExercise';
 
-const cMajorRight: ScaleExerciseProps = {
-    imagePath: cMajorRightImagePath,
-    imageDescription: "C major scale (right hand)",
-    instructions: "Play a C major scale with your right hand."
+const cMajorRight: ScaleExerciseState = {
+    image: imageCMajorRight,
+    description: "C major scale (right hand)"
 };
 
-const cMajorLeft: ScaleExerciseProps = {
-    imagePath: cMajorLeftImagePath,
-    imageDescription: "C major scale (left hand)",
-    instructions: "Play a C major scale with your left hand."
+const cMajorLeft: ScaleExerciseState = {
+    image: imageCMajorLeft,
+    description: "C major scale (left hand)"
 };
 
 const scales = [cMajorRight, cMajorLeft];
 
 export function getRandomScaleProps() {
-    // TODO: should scale be state not props?
     return scales[Math.floor(Math.random()*scales.length)];
 }
 

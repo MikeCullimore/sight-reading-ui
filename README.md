@@ -4,7 +4,9 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 
 ## todo
 
-* Refine next button: CSS to position it bottom right.
+* Position scale description top left like performance directions (e.g. allegro).
+* Refine next button: position it bottom right.
+* Bring SVG generation into this repo or separate backend?
 * Host latest prototype online
     * E.g. [mikecullimore.github.io](https://mikecullimore.github.io/)
 * Add image to this readme showing the design/flow: sheet music + MIDI + keyboard input...
@@ -26,6 +28,7 @@ Goal: build an app to help improve piano sight-reading skills, starting with sca
 * Configure tooling: Prettier? ES lint?
 * Exercise generator given grade.
     * Use Lilypond MIDI output! Can use Lilypond syntax as common input after all!
+* Capture relationships between scales e.g. relative minors.
 
 ## Useful links
 
