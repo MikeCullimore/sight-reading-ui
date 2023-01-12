@@ -1,12 +1,12 @@
 enum Grade {
     One = 1, // So that numeric values will match (default is 0).
     Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight
+    // Three,
+    // Four,
+    // Five,
+    // Six,
+    // Seven,
+    // Eight
 }
 
 // todo: add remaining keys.
@@ -64,6 +64,18 @@ enum Dynamics {
     Fortissimo
 }
 
+enum Descriptors {
+    Andante,
+    Allegretto,
+    Lively
+}
+
+interface OtherFeatures {
+    handsTogether: boolean
+    fiveFingerPosition: boolean
+    ties: boolean
+}
+
 // todo: add remaining parameters from ABRSM book e.g. dynamics, tempo markings and descriptions.
 // What else to capture? Note range, largest interval, ...?
 interface GradeParameters {
@@ -71,68 +83,51 @@ interface GradeParameters {
     timeSignatures: TimeSignature[]
     noteValues: NoteValue[]
     restValues: RestValue[]
-}
-
-// todo: function to generate exercises with these parameters.
-interface ExerciseParameters {
-    key: Key
-    timeSignature: TimeSignature
-    noteValues: NoteValue[]
-    restValues: RestValue[]
+    dynamics: Dynamics[]
+    otherFeatures: OtherFeatures
 }
 
 const gradeOne: GradeParameters = {
     keys: [Key.CMajor, Key.GMajor, Key.FMajor, Key.AMinor, Key.DMinor],
     timeSignatures: [TimeSignature.FourFour, TimeSignature.ThreeFour, TimeSignature.TwoFour],
     noteValues: [NoteValue.Quaver, NoteValue.Crotchet, NoteValue.Minim, NoteValue.DottedMinim],
-    restValues: [RestValue.Crotchet, RestValue.Minim, RestValue.SemiBreve]
+    restValues: [RestValue.Crotchet, RestValue.Minim, RestValue.SemiBreve],
+    dynamics: [Dynamics.Piano, Dynamics.MezzoPiano, Dynamics.MezzoForte, Dynamics.Forte, Dynamics.Crescendo, Dynamics.Diminuendo],
+    otherFeatures: {
+        handsTogether: false,
+        fiveFingerPosition: true,
+        ties: false
+    }
 }
 
 const gradeTwo: GradeParameters = {
     keys: [...gradeOne.keys, Key.DMajor, Key.EMinor, Key.GMinor],
     timeSignatures: gradeOne.timeSignatures,
-    noteValues: [...gradeOne.noteValues, NoteValue.DottedCrotchet, NoteValue.Minim],
+    noteValues: [...gradeOne.noteValues, NoteValue.DottedCrotchet, NoteValue.SemiBreve],
     restValues: gradeOne.restValues,
-}
-
-// Just to satisfy record so there are entries for every grade.
-const tmpEmptyGrade: GradeParameters = {
-    keys: [],
-    timeSignatures: [],
-    noteValues: [],
-    restValues: []
+    dynamics: [...gradeOne.dynamics, Dynamics.Pianissimo],
+    otherFeatures: {
+        ...gradeOne.otherFeatures,
+        handsTogether: true,
+        ties: true
+    }
 }
 
 const gradeParametersLookup: Record<Grade, GradeParameters> = {
     1: gradeOne,
-    2: gradeTwo,
-    3: tmpEmptyGrade,
-    4: tmpEmptyGrade,
-    5: tmpEmptyGrade,
-    6: tmpEmptyGrade,
-    7: tmpEmptyGrade,
-    8: tmpEmptyGrade
+    2: gradeTwo
 }
 
 function chooseRandom<T>(array: Array<T>): T {
     return array[Math.floor(Math.random()*array.length)];
 }
 
-function getExerciseParameters(grade: Grade): ExerciseParameters {
-    const gradeParameters = gradeParametersLookup[grade];
-    return {
-        key: chooseRandom(gradeParameters.keys),
-        timeSignature: chooseRandom(gradeParameters.timeSignatures),
-        noteValues: gradeParameters.noteValues,
-        restValues: gradeParameters.restValues
-    }
-}
-
+// todo!
 export function generateExercise(grade: Grade) {
-    const parameters = getExerciseParameters(grade);
-
+    const parameters = gradeParametersLookup[grade];
+    console.log(JSON.stringify(parameters));
 }
 
-// todo: make this work!
-// Compiled via `tsc grades.ts` which is then embedded in debugging.html.
-// document.body.textContent = JSON.stringify(getExerciseParameters(Grade.One));
+if (require.main === module) {
+    generateExercise(Grade.Two);
+}

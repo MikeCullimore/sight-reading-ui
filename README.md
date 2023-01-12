@@ -2,7 +2,20 @@
 
 Goal: build an app to help improve piano sight-reading skills, starting with scales, arpeggios and broken chords.
 
+## Setup
+
+```
+npm i
+```
+
+Priority: generate exercises.
+
+```
+npx ts-node src/grades.ts
+```
+
 ## todo
+
 
 * Position scale description top left like performance directions (e.g. allegro).
 * Refine next button: position it bottom right.
