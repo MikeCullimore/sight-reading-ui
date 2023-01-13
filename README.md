@@ -2,8 +2,6 @@
 
 Goal: build an app to help improve piano sight-reading skills, starting with scales, arpeggios and broken chords.
 
-![Screenshot with G major scale, hands together](docs/sight-reading-ui screenshot G major hands together.png?raw=true)
-
 ## Setup
 
 ```
@@ -18,6 +16,7 @@ npx ts-node src/grades.ts
 
 ## todo
 
+* Add screenshot to readme.
 * Position scale description top left like performance directions (e.g. allegro).
 * Refine next button: position it bottom right.
 * Bring SVG generation into this repo or separate backend?
