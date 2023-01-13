@@ -2,6 +2,8 @@
 
 Goal: build an app to help improve piano sight-reading skills, starting with scales, arpeggios and broken chords.
 
+![Screenshot with G major scale, hands together](src/scales/sight-reading-ui screenshot G major hands together.png)
+
 ## Setup
 
 ```
@@ -15,7 +17,6 @@ npx ts-node src/grades.ts
 ```
 
 ## todo
-
 
 * Position scale description top left like performance directions (e.g. allegro).
 * Refine next button: position it bottom right.

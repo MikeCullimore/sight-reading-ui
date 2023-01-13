@@ -1,5 +1,6 @@
 import imageCMajorRight from './scales/c-major-scale-right-hand.svg';
 import imageCMajorLeft from './scales/c-major-scale-left-hand.svg';
+import imageGMajorTogether from './scales/g-major-two-octaves-hands-together.svg';
 import { ScaleExerciseState } from './ScaleExercise';
 
 const cMajorRight: ScaleExerciseState = {
@@ -12,9 +13,14 @@ const cMajorLeft: ScaleExerciseState = {
     description: "C major scale (left hand)"
 };
 
-const scales = [cMajorRight, cMajorLeft];
+const gMajorTogether: ScaleExerciseState = {
+    image: imageGMajorTogether,
+    description: "G major scale (hands together)"
+};
 
-export function getRandomScaleProps() {
+const scales = [cMajorRight, cMajorLeft, gMajorTogether];
+
+export const getRandomScaleProps = (): ScaleExerciseState => {
     return scales[Math.floor(Math.random()*scales.length)];
 }
 

@@ -2,6 +2,7 @@ import './ScaleExercise.css';
 import { getRandomScaleProps } from './scales';
 import { useState } from 'react';
 
+// TODO: add grade?
 export interface ScaleExerciseState {
     image: string;
     description: string;
