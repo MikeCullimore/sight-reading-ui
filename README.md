@@ -2,7 +2,7 @@
 
 Goal: build an app to help improve piano sight-reading skills, starting with scales, arpeggios and broken chords.
 
-![Screenshot with G major scale, hands together](/docs/sight-reading-ui screenshot G major hands together.png?raw=true)
+![Screenshot with G major scale, hands together](docs/sight-reading-ui screenshot G major hands together.png?raw=true)
 
 ## Setup
 
