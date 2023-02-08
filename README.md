@@ -16,10 +16,11 @@ npx ts-node src/grades.ts
 
 ## todo
 
+* Deploy to GitHub pages: add to package.json "homepage": "http://mikecullimore.github.io/piano-sight-reading"
+* Delegate exercise and SVG generation to separate backend (lilypond-ts)?
 * Add screenshot to readme.
 * Position scale description top left like performance directions (e.g. allegro).
 * Refine next button: position it bottom right.
-* Bring SVG generation into this repo or separate backend?
 * Host latest prototype online
     * E.g. [mikecullimore.github.io](https://mikecullimore.github.io/)
 * Add image to this readme showing the design/flow: sheet music + MIDI + keyboard input...

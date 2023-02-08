@@ -1,4 +1,9 @@
-enum Grade {
+// import * as fs from 'node:fs';
+// TODO: remove when image no longer used.
+import imageGMajorTogether from './scales/g-major-two-octaves-hands-together.svg';
+import { SightReadingExerciseState } from "./SightReadingExercise"
+
+export enum Grade {
     One = 1, // So that numeric values will match (default is 0).
     Two,
     // Three,
@@ -19,6 +24,12 @@ enum Key {
     DMajor,
     EMinor,
     GMinor
+}
+
+enum ScaleType {
+    Natural,
+    Harmonic,
+    Melodic
 }
 
 enum TimeSignature {
@@ -76,7 +87,7 @@ interface OtherFeatures {
     ties: boolean
 }
 
-// todo: add remaining parameters from ABRSM book e.g. dynamics, tempo markings and descriptions.
+// todo: add remaining parameters from ABRSM book e.g. tempo markings and descriptions.
 // What else to capture? Note range, largest interval, ...?
 interface GradeParameters {
     keys: Key[]
@@ -107,8 +118,8 @@ const gradeTwo: GradeParameters = {
     restValues: gradeOne.restValues,
     dynamics: [...gradeOne.dynamics, Dynamics.Pianissimo],
     otherFeatures: {
-        ...gradeOne.otherFeatures,
         handsTogether: true,
+        fiveFingerPosition: false,
         ties: true
     }
 }
@@ -122,10 +133,33 @@ function chooseRandom<T>(array: Array<T>): T {
     return array[Math.floor(Math.random()*array.length)];
 }
 
-// todo!
-export function generateExercise(grade: Grade) {
-    const parameters = gradeParametersLookup[grade];
-    console.log(JSON.stringify(parameters));
+// TODO!
+export const generateExercise = (grade: Grade): SightReadingExerciseState => {
+    // const parameters = gradeParametersLookup[grade];
+    
+    // Choose random key from options.
+    // TODO: get notes in the scale. Use Tonal?
+    // TODO: separate rhythm and melody generators.
+    // const key = chooseRandom(parameters.keys);
+    // console.log(`key: ${Key[key]}`);
+
+    /**
+     * TODO
+     * Define Lilypond script contents (hard code for now).
+     * Save to file. Error importing node:fs ... need to handle in API?
+     * Invoke Lilypond.
+     * Return SVG.
+     */
+    // const fileContents = "Hello World!";
+    // const filename = "tmp.ly";
+    // fs.writeFileSync(filename, fileContents);
+    // console.log(`Successfully written to file ${filename}`);
+
+    const exercise: SightReadingExerciseState = {
+        image: imageGMajorTogether
+    };
+
+    return exercise;
 }
 
 if (require.main === module) {

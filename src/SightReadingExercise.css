@@ -1,0 +1,16 @@
+.sheet-music {
+    width: 90vw;
+}
+
+.sheet-music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.next-button {
+    font-size: 500%;
+    border-radius: 1pc;
+}

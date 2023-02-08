@@ -1,11 +1,13 @@
 import './App.css';
-import KeyboardListener from './KeyboardListener';
-import ScaleExercise from './ScaleExercise';
+// import KeyboardListener from './KeyboardListener';
+// import ScaleExercise from './ScaleExercise';
+import SightReadingExercise from './SightReadingExercise';
 
 function App() {
   return (
     <div className="App">
-      <ScaleExercise/>
+      <SightReadingExercise/>
+      {/* <ScaleExercise/> */}
       {/* <KeyboardListener/> */}
     </div>
   );
